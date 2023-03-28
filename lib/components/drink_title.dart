@@ -4,7 +4,13 @@ import '../models/drink.dart';
 class DrinkTitle extends StatelessWidget {
   final Drink drink;
   void Function()? onPressed;
-  DrinkTitle({super.key, required this.drink, required this.onPressed});
+  final Widget icon;
+  DrinkTitle({
+    super.key,
+    required this.drink,
+    required this.onPressed,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,10 @@ class DrinkTitle extends StatelessWidget {
         title: Text(drink.name),
         subtitle: Text(drink.price),
         leading: Image.asset(drink.imagePath),
-        trailing: IconButton(onPressed: onPressed, icon: Icon(Icons.add)),
+        trailing: IconButton(
+          icon: icon,
+          onPressed: onPressed,
+        ),
       ),
     );
   }
